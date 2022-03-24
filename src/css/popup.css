@@ -26,49 +26,6 @@
   src: url("/fonts/Inter-Medium.woff2") format("woff2");
 }
 
-/* General Rules and Resets */
-
-* {
-  font-size: inherit;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  margin-inline-end: 0;
-  margin-inline-start: 0;
-  padding-block-end: 0;
-  padding-block-start: 0;
-  padding-inline-end: 0;
-  padding-inline-start: 0;
-}
-
-html {
-  background-color: #fefefe;
-  box-sizing: border-box;
-  font-size: 12px;
-  overscroll-behavior: none;
-}
-
-body {
-  background-color: var(--bgColor);
-  color: var(--text-color-primary);
-  font-family: var(--fontInter);
-  font-size: 13px;
-  inline-size: 352px;
-  letter-spacing: -0.125px;
-  min-inline-size: 352px;
-}
-
-html,
-body {
-  block-size: 100%; /* Bugfix: issue 948 */
-  max-block-size: 650px;
-  min-block-size: 300px;
-
-  /* stylelint-disable */
-  scrollbar-width: none;
-  /* stylelint-enable */
-  transition: height 0.1s ease-in-out;
-}
-
 [data-theme="light"],
 :root {
   --fontInter: "Inter", sans-serif;
@@ -196,6 +153,49 @@ body {
   --toggle-on-border-color: #0df;
   --toggle-on-handle-bg-color: #42414d;
   --usercontext-bg-active-color: #2b2a33;
+}
+
+/* General Rules and Resets */
+
+* {
+  font-size: inherit;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+  padding-block-end: 0;
+  padding-block-start: 0;
+  padding-inline-end: 0;
+  padding-inline-start: 0;
+}
+
+html {
+  background-color: var(--panel-bg-color);
+  box-sizing: border-box;
+  font-size: 12px;
+  overscroll-behavior: none;
+}
+
+body {
+  background-color: var(--panel-bg-color);
+  color: var(--text-color-primary);
+  font-family: var(--fontInter);
+  font-size: 13px;
+  inline-size: 352px;
+  letter-spacing: -0.125px;
+  min-inline-size: 352px;
+}
+
+html,
+body {
+  block-size: 100%; /* Bugfix: issue 948 */
+  max-block-size: 650px;
+  min-block-size: 300px;
+
+  /* stylelint-disable */
+  scrollbar-width: none;
+  /* stylelint-enable */
+  transition: height 0.1s ease-in-out;
 }
 
 /* Hack for menu icons to use a light color without affecting container icons */
