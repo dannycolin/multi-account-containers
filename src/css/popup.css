@@ -199,7 +199,7 @@ body {
 }
 
 /* Hack for menu icons to use a light color without affecting container icons */
-[data-theme="dark"] .trash-button,
+[data-theme="light"] .trash-button,
 [data-theme="dark"] img.menu-icon,
 [data-theme="dark"] .menu-icon > img,
 [data-theme="dark"] .menu-arrow > img,
@@ -208,7 +208,8 @@ body {
 }
 
 [data-theme="dark"] #edit-sites-assigned .menu-icon,
-[data-theme="dark"] #container-info-table .menu-icon {
+[data-theme="dark"] #container-info-table .menu-icon,
+[data-theme="dark"] .trash-button {
   filter: invert(0);
 }
 
