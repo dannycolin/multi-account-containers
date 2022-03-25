@@ -68,35 +68,48 @@
   margin-inline: 0;
 
   /* Proton Colors */
+  --badge-destructive-bg-color: #e22850;
+  --badge-destructive-text-color: #fbfbfe;
   --button-bg-color-primary: #0060df;
+  --button-bg-active-color-primary: #054096;
   --button-bg-hover-color-primary: #0250bb;
   --button-bg-focus-color-primary: #0060df;
   --button-text-color-primary: #fbfbfe;
   --button-bg-color-secondary: #f0f0f4;
+  --button-bg-active-color-secondary: #cfcfd8;
   --button-bg-hover-color-secondary: #e0e0e6;
   --button-destructive-bg-color: #e22850;
+  --button-destructive-bg-active-color: #810220;
   --button-destructive-bg-hover-color: #c50042;
+  --button-destructive-bg-focus-color: #e22850;
   --button-destructive-text-color: #fbfbfe;
   --input-bg-color: #fff;
   --input-bg-focus-color: #fff;
+  --input-bg-active-color: #054096;
   --input-border-color: #8f8f9d;
   --input-border-focus-color: #0060df;
+  --input-border-active-color: #054096;
   --text-color-primary: #15141a;
+  --menu-bg-active-color: #cfcfd8;
   --menu-bg-hover-color: #e0e0e6;
   --panel-bg-color: #fff;
   --panel-separator-color: rgba(240, 240, 244, 1);
   --link-color: #0060df;
   --link-hover-color: #0250bb;
   --toggle-off-bg-color: #f0f0f4;
+  --toggle-off-bg-active-color: #cfcfd8;
   --toggle-off-bg-hover-color: #e0e0e6;
   --toggle-off-bg-focus-color: #f0f0f4;
   --toggle-off-border-color: #8f8f9d;
   --toggle-on-bg-color: #0060df;
+  --toggle-on-bg-active-color: #054096;
   --toggle-on-bg-hover-color: #0250bb;
   --toggle-on-bg-focus-color: #0060df;
   --toggle-on-border-color: #0060df;
   --toggle-on-handle-bg-color: #fff;
+  --usercontext-bg-hover-color: #e0e0e6;
   --usercontext-bg-active-color: #e0e0e6;
+  --moz-vpn-tout-shadow: 0 0 7px 0 #9498a25e;
 }
 
 [data-theme="dark"] {
@@ -115,26 +128,35 @@
   --bgDark: #2b2932;
 
   /* Proton Colors */
+  --badge-destructive-bg-color: #ff8480;
+  --badge-destructive-text-color: #15141a;
   --button-bg-color-primary: #0df;
+  --button-bg-active-color-primary: #aaf2ff;
   --button-bg-hover-color-primary: #80ebff;
   --button-bg-focus-color-primary: #0df;
   --button-text-color-primary: #15141a;
   --button-bg-color-secondary: #2b2a33;
+  --button-bg-active-color-secondary: #5b5b66;
   --button-bg-hover-color-secondary: #52525e;
   --button-destructive-bg-color: #ff8480;
+  --button-destructive-bg-active-color: #ffdfe7;
   --button-destructive-bg-hover-color: #ffbdc5;
+  --button-destructive-bg-focus-color: #ff8480;
   --button-destructive-text-color: #15141a;
 
-  /* For the input background, we use dark-grey-60 instead of dark-grey-30
+  /* for the input background, we use dark-grey-60 instead of dark-grey-30
    * instead the panel background is lighter than the page background
    */
   --input-bg-color: #2b2a33;
+  --input-bg-active-color: #aaf2ff;
   --input-bg-focus-color: #52525e;
   --input-border-color: #8f8f9d;
+  --input-border-active-color: #aaf2ff;
   --input-border-focus-color: #0df;
   --link-color: #0df;
   --link-hover-color: #80ebff;
   --text-color-primary: #fbfbfe;
+  --menu-bg-active-color: #5b5b66;
   --menu-bg-hover-color: #52525e;
   --panel-bg-color: #42414d;
   --panel-separator-color: rgba(82, 82, 94, 1);
@@ -144,15 +166,20 @@
    * the Proton Design System
    */
   --toggle-off-bg-color: #2b2a33;
+  --toggle-off-bg-active-color: #5b5b66;
   --toggle-off-bg-hover-color: #52525e;
   --toggle-off-bg-focus-color: #2b2a33;
   --toggle-off-border-color: #8f8f9d;
   --toggle-on-bg-color: #0df;
+  --toggle-on-bg-active-color: #aaf2ff;
   --toggle-on-bg-hover-color: #80ebff;
   --toggle-on-bg-focus-color: #0df;
   --toggle-on-border-color: #0df;
   --toggle-on-handle-bg-color: #42414d;
-  --usercontext-bg-active-color: #2b2a33;
+  --usercontext-bg-active-color: #5b5b66;
+  --usercontext-bg-focus-color: #2b2a33;
+  --usercontext-bg-hover-color: #52525e;
+  --moz-vpn-tout-shadow: 0 0 7px 0 #7478825e;
 }
 
 /* General Rules and Resets */
@@ -199,7 +226,8 @@ body {
 }
 
 /* Hack for menu icons to use a light color without affecting container icons */
-[data-theme="light"] .trash-button,
+[data-theme="light"] img.delete-assignment,
+[data-theme="dark"] .trash-button,
 [data-theme="dark"] img.menu-icon,
 [data-theme="dark"] .menu-icon > img,
 [data-theme="dark"] .menu-arrow > img,
@@ -207,9 +235,9 @@ body {
   filter: invert(1);
 }
 
+[data-theme="dark"] img.delete-assignment,
 [data-theme="dark"] #edit-sites-assigned .menu-icon,
-[data-theme="dark"] #container-info-table .menu-icon,
-[data-theme="dark"] .trash-button {
+[data-theme="dark"] #container-info-table .menu-icon {
   filter: invert(0);
 }
 
@@ -275,8 +303,7 @@ table {
   position: absolute;
 }
 
-.hover-highlight:hover .truncate-text::after,
-.hover-highlight:focus .truncate-text::after {
+.hover-highlight:hover .truncate-text::after {
   background-color: var(--menu-bg-hover-color);
   mask-image: linear-gradient(to right, transparent, var(--menu-bg-hover-color) 50%);
 }
@@ -401,14 +428,32 @@ table {
   color: var(--button-text-color-primary);
 }
 
-.button.primary:hover,
-.button.primary:focus {
+.button.primary:hover {
   background-color: var(--button-bg-hover-color-primary);
 }
 
-.button.secondary:hover,
-.button.secondary:focus {
+.button.primary:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
+.button.secondary:hover {
   background-color: var(--button-bg-hover-color-secondary);
+}
+
+.button.secondary:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
+.button.primary:active {
+  background-color: var(--button-bg-active-color-primary);
+  outline: none;
+}
+
+.button.secondary:active {
+  background-color: var(--button-bg-active-color-secondary);
+  outline: none;
 }
 
 /* Mozilla VPN status icon */
@@ -437,7 +482,6 @@ table {
   font-size: 12px;
   padding-inline-start: 19px;
   padding-inline-end: 22px;
-  margin-inline-end: 20px;
   align-items: center;
 }
 
@@ -497,7 +541,7 @@ input:focus + .slider {
 }
 
 input:active + .slider {
-  background-color: var(--grey40);
+  background-color: var(--toggle-off-bg-active-color);
 }
 
 input:checked + .slider {
@@ -523,7 +567,7 @@ input:checked:focus + .slider {
 }
 
 input:checked:active + .slider {
-  background-color: var(--green70);
+  background-color: var(--toggle-on-bg-active-color);
 }
 
 input:checked:hover:focus + .slider {
@@ -561,21 +605,21 @@ input:checked:hover:focus + .slider {
 }
 
 .primary-cta:active {
-  background-color: var(--primaryCtaActive);
+  background-color: var(--button-bg-active-color-primary);
 }
 
 /* Mozilla VPN tout */
 
 #moz-vpn-tout {
   opacity: 0;
-  background-color: var(--bgColor);
+  background-color: var(--panel-bg-color);
   visibility: visible;
   max-block-size: 500px;
   position: absolute;
   inset-block-end: var(--footerHeight);
   inset-inline-start: 0;
   inset-inline-end: 0;
-  box-shadow: 0 0 7px 0 #9498a25e;
+  box-shadow: var(--moz-vpn-tout-shadow);
   animation: appear 0.2s ease-out 0.5s forwards;
   transition: opacity 0.1s ease-in-out, max-height 0.3s ease-in-out;
 }
@@ -702,8 +746,9 @@ input.proxies {
 #moz-vpn-current-server {
   align-items: center;
   border: none;
+  border-radius: 4px;
   display: flex;
-  block-size: 48px;
+  block-size: 32px;
   margin-block-start: 8px;
   background-color: var(--panel-bg-color);
   background-image: var(--iconArrowRight);
@@ -712,16 +757,28 @@ input.proxies {
   background-size: 9px;
   outline: none;
   padding-inline-start: 20px;
+  margin-inline: 8px;
+  margin-block: 8px;
   visibility: visible;
   position: absolute;
   inset-block-end: 0;
-  inline-size: 100%;
+  inline-size: calc(100% - 16px);
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
 
 #moz-vpn-current-server:hover {
   background-color: var(--button-bg-hover-color-secondary);
+}
+
+#moz-vpn-current-server:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
+#moz-vpn-current-server:active {
+  background-color: var(--button-bg-active-color-secondary);
+  outline: none;
 }
 
 .moz-vpn-controller-content.show-server-button #moz-vpn-current-server {
@@ -847,16 +904,15 @@ input.proxies {
 }
 
 .advanced-proxy-settings-btn {
-  background-color: var(--bgColor);
-  box-shadow: 0 0 0 1px var(--panel-separator-color);
+  background-color: var(--panel-bg-color);
   background-image: var(--iconGear), var(--iconArrowRight);
   background-position: 16px center, calc(100% - 24px) center;
   background-repeat: no-repeat;
   background-size: 24px 24px, 9px;
   border: none;
+  border-radius: 4px;
   color: var(--text-color-primary);
-  block-size: 56px;
-  min-block-size: 56px;
+  block-size: 32px;
   line-height: 19px;
   display: flex;
   flex-direction: column;
@@ -865,6 +921,8 @@ input.proxies {
   padding-inline-start: 44px;
   z-index: 2;
   transition: opacity 0.1s ease-in-out, background-color 0.1s ease-in-out;
+  margin-inline: 8px;
+  margin-block: 8px;
 }
 
 .disabled {
@@ -873,9 +931,17 @@ input.proxies {
   pointer-events: none;
 }
 
-.advanced-proxy-settings-btn:hover,
-.advanced-proxy-settings-btn:focus {
+.advanced-proxy-settings-btn:hover {
   background-color: var(--button-bg-hover-color-secondary);
+}
+
+.advanced-proxy-settings-btn:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
+.advanced-proxy-settings-btn:active {
+  background-color: var(--button-bg-active-color-secondary);
   outline: none;
 }
 
@@ -923,8 +989,8 @@ input.proxies {
   inset-inline-start: 16px;
   visibility: hidden;
   opacity: 0;
-  background-color: var(--alertColor);
-  color: white;
+  background-color: var(--badge-destructive-bg-color);
+  color: var(--badge-destructive-text-color);
   border-radius: 4px;
   padding-block: 2px;
   padding-inline: 4px;
@@ -935,7 +1001,7 @@ input.proxies {
   content: "";
   block-size: 8px;
   inline-size: 8px;
-  background-color: var(--alertColor);
+  background-color: var(--badge-detructive-bg-color);
   inset-block-start: -4px;
   position: absolute;
   transform: rotate(45deg);
@@ -990,12 +1056,7 @@ input.proxies {
   position: fixed;
   z-index: 1;
   background-color: var(--bgColor);
-  box-shadow: 0 0 13px -2px #b5b5b500;
   transition: box-shadow 0.5s ease;
-}
-
-.drop-shadow {
-  box-shadow: 0 0 13px -2px #b5b5b54d;
 }
 
 .moz-vpn-server-list {
@@ -1064,6 +1125,16 @@ input.proxies {
   background-color: var(--button-bg-hover-color-secondary) !important;
 }
 
+.server-city-list-visibility-btn:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
+.server-city-list-visibility-btn:active {
+  background-color: var(--button-bg-active-color-secondary) !important;
+  outline: none;
+}
+
 .toggle {
   background-image: url("/img/arrow-toggle.svg");
   background-position: center center;
@@ -1099,8 +1170,18 @@ input.proxies {
   position: relative;
 }
 
+.server-city-list-item:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
 .server-city-list-item:hover {
   background-color: var(--button-bg-hover-color-secondary);
+}
+
+.server-city-list-item:active {
+  background-color: var(--button-bg-active-color-secondary);
+  outline: none;
 }
 
 .server-city-name {
@@ -1122,9 +1203,18 @@ input.proxies {
   background-color: transparent;
 }
 
-.controller:hover,
-.controller:focus {
+.controller:hover {
   background-color: var(--button-bg-hover-color-secondary);
+}
+
+.controller:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
+.controller:active {
+  background-color: var(--button-bg-active-color-secondary);
+  outline: none;
 }
 
 /* WARNING MODAL ---- */
@@ -1247,22 +1337,21 @@ input.proxies {
 
 .server-radio-control {
   border-radius: 50%;
-  border: 2px solid var(--grey40);
+  border: 2px solid var(--input-border-color);
   block-size: 20px;
   margin-inline-start: 46px;
   pointer-events: none;
   position: relative;
   inline-size: 20px;
-  transition: border 0.1s ease-in-out;
 }
 
 .server-radio-btn:checked + .server-radio-control {
   border-color: var(--input-border-focus-color);
-  transition: border-color 0.2s ease;
+  border: 2px solid var(--input-border-focus-color);
 }
 
 .server-radio-control::after {
-  background-color: var(--grey40);
+  border: 2px solid var(--input-border-color);
   border-radius: 50%;
   inset-block-end: 0;
   content: "";
@@ -1274,7 +1363,6 @@ input.proxies {
   position: absolute;
   inset-inline-end: 0;
   inset-block-start: 0;
-  transition: opacity 0.1s ease-in-out;
   inline-size: 12px;
 }
 
@@ -1282,7 +1370,28 @@ input.proxies {
 
 .server-radio-btn:checked + .server-radio-control::after {
   background-color: var(--input-border-focus-color);
+  border: 2px solid var(--input-border-focus-color);
   opacity: 1;
+}
+
+/* Active state */
+.server-radio-btn:active + .server-radio-control {
+  border: 2px solid var(--input-border-active-color);
+}
+
+.server-radio-btn:active + .server-radio-control::after {
+  background-color: var(--input-bg-active-color);
+  border: 2px solid var(--input-border-active-color);
+  opacity: 1;
+}
+
+.server-radio-btn:checked:active + .server-radio-control {
+  border: 2px solid var(--input-border-active-color);
+}
+
+.server-radio-btn:checked:active + .server-radio-control::after {
+  background-color: var(--input-bg-active-color);
+  border: 2px solid var(--input-border-active-color);
 }
 
 /* Helpers */
@@ -1451,10 +1560,15 @@ input[type=text] {
 
 .panel-footer .button {
   align-items: center;
-  block-size: 100%;
+  block-size: 32px;
+  border-radius: 4px;
   display: flex;
   flex: 1;
   justify-content: center;
+}
+
+.panel-footer .button + .button {
+  margin-inline: 8px;
 }
 
 /* Onboarding styles */
@@ -1532,6 +1646,10 @@ input[type=text] {
   background-color: var(--button-bg-hover-color-secondary);
 }
 
+.grey-button:active.half-onboarding-button:active {
+  background-color: var(--button-bg-active-color-secondary);
+}
+
 .onboarding-button:hover,
 .half-onboarding-button:hover {
   background-color: var(--button-bg-hover-color-primary);
@@ -1542,6 +1660,11 @@ input[type=text] {
   box-shadow:
     0 0 0 2px var(--button-bg-color-secondary),
     0 0 0 4px var(--button-bg-focus-color-primary);
+}
+
+.onboarding-button:active,
+.half-onboarding-button:active {
+  background-color: var(--button-bg-active-color-primary);
 }
 
 /* Pop buttons are the square shaped buttons used to
@@ -1626,13 +1749,13 @@ manage things like container crud */
 /* Panel footer */
 .panel-footer {
   align-items: center;
-  block-size: var(--footerHeight);
   color: #000;
   display: flex;
   font-size: 13px;
   inline-size: 100%;
   justify-content: space-between;
-  box-shadow: 0 0 0 1px var(--panel-separator-color);
+  padding-block: 8px;
+  padding-inline: 8px;
 }
 
 #container-info-panel {
@@ -1715,6 +1838,7 @@ manage things like container crud */
   background: none;
   block-size: 23px;
   border: 0;
+  border-radius: 50%;
   filter: none;
   inline-size: 23px;
   margin-block-end: 0;
@@ -1725,6 +1849,14 @@ manage things like container crud */
   padding-block-start: 0;
   padding-inline-end: 0;
   padding-inline-start: 0;
+}
+
+.radio-choice > .radio-container > label:hover {
+  background-color: var(--usercontext-bg-hover-color);
+}
+
+.radio-choice > .radio-container > label:active {
+  background-color: var(--usercontext-bg-active-color);
 }
 
 .radio-choice > .radio-container > label::before {
@@ -1753,7 +1885,7 @@ manage things like container crud */
 }
 
 .radio-choice > .radio-container > [type="radio"]:checked + label {
-  background-color: var(--usercontext-bg-active-color);
+  background-color: var(--usercontext-bg-focus-color);
   border-radius: 100%;
 }
 
@@ -1861,15 +1993,17 @@ h3.title {
   border-style: none;
   inline-size: 100%;
   padding-block: 8px;
+  padding-inline: 8px;
 }
 
 .menu-item {
+  align-items: center;
+  block-size: 32px;
+  border-radius: 4px;
   cursor: pointer;
-  block-size: var(--menuItemHeight);
+  display: flex;
   inline-size: 100%;
   line-height: var(--menuItemHeight);
-  display: flex;
-  align-items: center;
 }
 
 .menu-text {
@@ -1882,26 +2016,35 @@ h3.title {
   align-items: center;
   display: flex;
   inline-size: 100%;
+  padding-inline: 8px;
 }
 
 .menu-item.drag-over td {
-  border-block-start: 2px solid var(--text-normal-color);
+  border-block-start: 2px solid var(--panel-separator-color);
 }
 
 .disabled-menu-item {
-  color: grey;
   cursor: default;
   font-style: italic;
+  opacity: 0.4;
 }
 
 .hover-highlight {
   transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 
-.hover-highlight:hover,
-.hover-highlight:focus {
+.hover-highlight:hover {
   background-color: var(--menu-bg-hover-color);
-  color: #fff;
+}
+
+.hover-highlight:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
+.hover-highlight:active {
+  background-color: var(--menu-bg-active-color);
+  outline: none;
 }
 
 .menu-item-name {
@@ -1922,7 +2065,6 @@ h3.title {
   margin-block-end: auto;
   margin-block-start: auto;
   margin-inline-end: 8px;
-  margin-inline-start: var(--marginInline);
   text-align: center;
 }
 
@@ -1955,7 +2097,6 @@ h3.title {
   display: flex;
   justify-content: flex-end;
   block-size: 24px;
-  margin-inline-end: 20px;
   text-align: center;
 }
 
@@ -1982,6 +2123,7 @@ hr {
 
 .sub-header-wrapper {
   margin-block-start: 12px;
+  padding-inline: 16px;
 }
 
 .sub-header {
@@ -1990,7 +2132,6 @@ hr {
   line-height: 24px;
   padding-block-end: 0;
   padding-block-start: 0;
-  padding-inline-start: 20px;
   font-family: var(--fontInterMedium);
 }
 
@@ -2004,35 +2145,35 @@ hr {
 }
 
 .bottom-btn {
-  inset-block-end: 0;
-  box-shadow: 0 0 0 1px var(--panel-separator-color);
+  block-size: 32px;
+  border-radius: 4px;
+  color: var(--text-color-primary);
   cursor: pointer;
-  block-size: var(--footerHeight);
-  inline-size: 100%;
-  line-height: var(--footerHeight);
-  padding-inline-end: 16px;
-  padding-inline-start: 16px;
+  font-family: var(--fontMetropolis);
+  font-size: 14px;
+  inline-size: calc(100% - 16px);
+  inset-block-end: 0;
+  line-height: 32px;
+  margin-block: 8px;
+  margin-inline: 8px;
+  padding-inline: 8px;
+  pointer-events: all;
   position: absolute;
   text-align: center;
-  font-size: 14px;
-  font-family: var(--fontMetropolis);
-  color: var(--text-color-primary);
-  pointer-events: all;
 }
 
 .delete-btn {
   background-color: var(--button-destructive-bg-color);
+  block-size: 32px;
   border: none;
-  border-left: none;
-  border-right: none;
-  border-block-end: none;
-  box-shadow: 0 0 0 1px var(--panel-separator-color);
+  border-radius: 4px;
   color: var(--button-destructive-text-color);
   cursor: default;
   display: flex;
-  block-size: var(--rowHeight);
   justify-content: center;
-  line-height: var(--rowHeight);
+  line-height: 32px;
+  margin-block: 8px;
+  margin-inline: 8px;
   pointer-events: all;
 }
 
@@ -2042,9 +2183,18 @@ hr {
   text-align: center;
 }
 
-.alert-text:hover,
-.alert-text:focus {
+.alert-text:hover {
   background-color: var(--button-destructive-bg-hover-color);
+}
+
+.alert-text:focus {
+  outline: 2px solid var(--button-destructive-bg-focus-color);
+  outline-offset: 2px;
+}
+
+.alert-text:active {
+  background-color: var(--button-destructive-bg-active-color);
+  outline: none;
 }
 
 .btn-return.arrow-left {
@@ -2097,27 +2247,45 @@ input {
 
 .info-icon {
   cursor: pointer;
-  block-size: 16px;
-  inline-size: 16px;
-  inset-block-start: 16px;
+  block-size: 32px;
+  inline-size: 32px;
+  inset-block-start: 8px;
   position: absolute;
-  inset-inline-end: 20px;
+  inset-inline-end: 8px;
   text-align: center;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.info-icon:hover {
+  background-color: var(--button-bg-hover-color-secondary);
+}
+
+.info-icon:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
+.info-icon:active {
+  background-color: var(--button-bg-active-color-secondary);
+  outline: none;
 }
 
 .info-icon-alert::after {
   block-size: 12px;
   inline-size: 12px;
-  background-color: var(--alertColor);
+  background-color: var(--badge-destructive-bg-color);
   content: "1";
   border-radius: 50%;
   position: absolute;
-  inset-block: -5px;
-  inset-inline-end: -6px;
+  inset-block-start: 2px;
+  inset-inline-end: 2px;
   box-shadow: 0 0 1px #00000075;
   font-size: 8px;
-  color: white;
+  color: var(--badge-destructive-text-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2141,8 +2309,6 @@ input {
   inline-size: 20px;
   margin-block-end: 4px;
   margin-block-start: 4px;
-  margin-inline-end: 10px;
-  margin-inline-start: 0;
   text-align: center;
 }
 
@@ -2161,8 +2327,6 @@ tr:hover > td > .trash-button {
 
 .move-button > img {
   block-size: 16px;
-  margin-inline-end: 20px;
-  margin-inline-start: 8px;
 }
 /* stylelint-enable no-descending-specificity */
 
