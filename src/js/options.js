@@ -53,8 +53,8 @@ async function enableDisableReplaceTab() {
   await browser.storage.local.set({replaceTabEnabled: !!checkbox.checked});
 }
 
-async function changeTheme() {
-  const theme = document.querySelector("#changeTheme");
+async function changeTheme(event) {
+  const theme = event.currentTarget;
   await browser.storage.local.set({currentTheme: theme.value});
   await browser.storage.local.set({currentThemeId: theme.selectedIndex});
 }
