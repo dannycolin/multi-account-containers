@@ -32,22 +32,9 @@ async function init() {
   list.appendChild(fragment);
 
   MozillaVPN.handleContainerList(identities);
+
+  // Set the theme
+  Utils.applyTheme();
 }
 
-async function applyTheme() {
-  const { currentTheme } = await browser.storage.local.get("currentTheme");
-  const popup = document.getElementsByTagName("html")[0];
-
-  if (typeof currentTheme === "undefined" || currentTheme === "auto") {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      popup.setAttribute("data-theme", "dark");
-    } else {
-      popup.setAttribute("data-theme", "light");
-    }
-  } else {
-    popup.setAttribute("data-theme", currentTheme);
-  }
-}
-
-applyTheme();
 init();
