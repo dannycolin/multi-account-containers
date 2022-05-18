@@ -1,0 +1,26 @@
+name: Bug Report
+description: Report a problem in Multi-Account Containers
+labels: [bug]
+title: ""
+body:
+  - type: input
+    id: mac_version
+    attributes:
+      label: Multi-Account Containers version
+      placeholder: 7.5.0
+    validations:
+      required: true
+  - type: input
+    id: os_version
+    attributes:
+      label: Operating system version
+      placeholder: Windows 10
+    validations:
+      required: true
+  - type: input
+    id: fx_version
+    attributes:
+      label: Firefox version
+      placeholder: 100
+    validations:
+      required: true
