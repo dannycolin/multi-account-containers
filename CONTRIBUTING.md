@@ -32,7 +32,15 @@ repository like any other. Before editing files in this folder, you need to:
 
 You can then [open a pull request][pr] on [the l10n repository][l10n].
 
+## Pull Requests
+
+If you intend to submit a patch, we recommend [filing an issue][patch]. This
+lets us reach an agreement on your proposal before you put significant effort
+into it. 
+
+<!-- links -->
 [fork]: https://docs.github.com/en/get-started/quickstart/fork-a-repo
 [l10n]: https://github.com/mozilla-l10n/multi-account-containers-l10n/
+[patch]: https://github.com/mozilla/multi-account-containers/issues/new/choose
 [pr]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 [web-ext]: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext
