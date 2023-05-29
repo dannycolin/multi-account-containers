@@ -809,7 +809,7 @@ Logic.registerPanel(P_CONTAINERS_LIST, {
       divUsercontextIcon.classList.add("usercontext-icon");
       divUsercontextIcon.setAttribute("data-identity-icon", identity.icon);
       divUsercontextIcon.setAttribute("data-identity-color", identity.color);
-      
+
       // Create <span class="menu-text">${identity.name}</span>`;
       const spanMenuText = document.createElement("span");
       spanMenuText.classList.add("menu-text");
@@ -820,7 +820,7 @@ Logic.registerPanel(P_CONTAINERS_LIST, {
       divMenuIcon.appendChild(divUsercontextIcon);
       divMenuItemName.appendChild(divMenuIcon);
       divMenuItemName.appendChild(spanMenuText);
-      td.appendChild(divMenuItemName);      
+      td.appendChild(divMenuItemName);
 
       // Create <span class="menu-right-float">
       const spanMenuRightFloat = document.createElement("span");
@@ -840,7 +840,7 @@ Logic.registerPanel(P_CONTAINERS_LIST, {
       // Create  <span class="menu-arrow">
       const spanMenuArrow = document.createElement("span");
       spanMenuArrow.classList.add("menu-arrow");
-      
+
       // Create <img alt="Container Info" src="/img/arrow-icon-right.svg" />
       const imgArrowRight = document.createElement("img");
       imgArrowRight.alt = browser.i18n.getMessage("imageAltContainerInfo");
@@ -849,10 +849,10 @@ Logic.registerPanel(P_CONTAINERS_LIST, {
       // Append Children
       // td > spanMenuRightFloat > imgFlag |  spanContainerCount | (spanMenuArrow > imgArrowRight)
       spanMenuArrow.appendChild(imgArrowRight);
-      spanMenuRightFloat.appendChild(imgFlag);  
-      spanMenuRightFloat.appendChild(spanContainerCount);  
-      spanMenuRightFloat.appendChild(spanMenuArrow);  
-      td.appendChild(spanMenuRightFloat);  
+      spanMenuRightFloat.appendChild(imgFlag);
+      spanMenuRightFloat.appendChild(spanContainerCount);
+      spanMenuRightFloat.appendChild(spanMenuArrow);
+      td.appendChild(spanMenuRightFloat);
       tr.appendChild(td);
       fragment.appendChild(tr);
 
@@ -1046,19 +1046,19 @@ Logic.registerPanel(P_CONTAINER_INFO, {
 
       // Create <td>
       const tdMenuItem = document.createElement("td");
-        
+
       // Create <div class="favicon"></div> and set context via createFavIconElement()
       const divFavIcon = document.createElement("div");
       divFavIcon.classList.add("favicon");
       divFavIcon.appendChild(Utils.createFavIconElement(tab.favIconUrl));
-        
+
       // Create <span title="${tab.url}" class="menu-text truncate-text">${tab.title}</span>
       const spanMenuTruncateText = document.createElement("span");
       spanMenuTruncateText.classList.add("truncate-text");
       spanMenuTruncateText.classList.add("menu-text");
       spanMenuTruncateText.textContent = tab.title;
       spanMenuTruncateText.title = tab.url;
-        
+
       // Create <img id="${tab.id}" class="trash-button" src="/img/close.svg" />
       const imgTrashButton = document.createElement("img");
       imgTrashButton.classList.add("trash-button");
@@ -1067,9 +1067,9 @@ Logic.registerPanel(P_CONTAINER_INFO, {
 
       // Append Children
       // table > fragment > tr > td > divFavIcon | spanMenuTruncateText | imgTrashButton
-      tdMenuItem.appendChild(divFavIcon);  
-      tdMenuItem.appendChild(spanMenuTruncateText);  
-      tdMenuItem.appendChild(imgTrashButton); 
+      tdMenuItem.appendChild(divFavIcon);
+      tdMenuItem.appendChild(spanMenuTruncateText);
+      tdMenuItem.appendChild(imgTrashButton);
       tr.appendChild(tdMenuItem);
       fragment.appendChild(tr);
       table.appendChild(fragment);
@@ -1125,11 +1125,11 @@ Logic.registerPanel(OPEN_NEW_CONTAINER_PICKER, {
       const tr = document.createElement("tr");
       tr.classList.add("menu-item", "hover-highlight", "keyboard-nav");
       tr.setAttribute("tabindex", "0");
-      
+
       // Create <td>
       const td = document.createElement("td");
-      
-      // Create <div class="menu-icon"> 
+
+      // Create <div class="menu-icon">
       const divMenuIcon = document.createElement("div");
       divMenuIcon.classList.add("menu-icon");
 
@@ -1143,7 +1143,7 @@ Logic.registerPanel(OPEN_NEW_CONTAINER_PICKER, {
       const spanMenuText = document.createElement("span");
       spanMenuText.classList.add("menu-text");
       spanMenuText.textContent = identity.name;
-      
+
       // Append Children
       // fragment > tr > td > (divMenuIcon > divMenuIcon) | spanMenuText
       divMenuIcon.appendChild(divUsercontextIcon);
@@ -1194,7 +1194,7 @@ Logic.registerPanel(MANAGE_CONTAINERS_PICKER, {
     };
 
     const divNewContainer = document.getElementById("new-container-div");
-    
+
     // Create <table class="menu">
     const tableMenu = document.createElement("table");
     tableMenu.classList.add("menu");
@@ -1209,7 +1209,7 @@ Logic.registerPanel(MANAGE_CONTAINERS_PICKER, {
 
     // Create <td>
     const tableData = document.createElement("td");
-    
+
     // Create <div class="menu-icon">
     const divMenuIcon = document.createElement("div");
     divMenuIcon.classList.add("menu-icon");
@@ -1223,7 +1223,7 @@ Logic.registerPanel(MANAGE_CONTAINERS_PICKER, {
     spanMenuText.classList.add("menu-text");
     spanMenuText.textContent = browser.i18n.getMessage("newContainer");
 
-    // Create <hr /> 
+    // Create <hr />
     const horizontalRule = document.createElement("hr");
 
     // Append Children
@@ -1233,7 +1233,7 @@ Logic.registerPanel(MANAGE_CONTAINERS_PICKER, {
     tableData.appendChild(spanMenuText);
     tableRowMenuItem.appendChild(tableData);
     tableMenu.appendChild(tableRowMenuItem);
-    divNewContainer.appendChild(tableMenu);
+    divNewContainer.replaceChildren(tableMenu);
     divNewContainer.appendChild(horizontalRule);
 
     Utils.addEnterHandler(document.querySelector("#new-container"), () => {
@@ -1250,7 +1250,7 @@ Logic.registerPanel(MANAGE_CONTAINERS_PICKER, {
 
       // Create <td>
       const td = document.createElement("td");
-      
+
       // Create <div class="menu-icon hover-highlight">
       const divMenuIcon = document.createElement("div");
       divMenuIcon.classList.add("menu-icon");
@@ -1272,7 +1272,7 @@ Logic.registerPanel(MANAGE_CONTAINERS_PICKER, {
       // Note - The image src is dynamically set when a specific country/server is set.
       imgFlag.classList.add("manage-containers-list-flag");
       imgFlag.classList.add("flag-img");
-      
+
       // Create <span class="move-button">
       const spanMoveButton = document.createElement("span");
       spanMoveButton.classList.add("move-button");
@@ -1387,7 +1387,7 @@ Logic.registerPanel(REOPEN_IN_CONTAINER_PICKER, {
 
       // Create <td>
       const td = document.createElement("td");
-      
+
       // Create <div class="menu-icon hover-highlight">
       const divMenuIcon = document.createElement("div");
       divMenuIcon.classList.add("menu-icon");
@@ -1496,7 +1496,7 @@ Logic.registerPanel(ALWAYS_OPEN_IN_PICKER, {
 
       // Create <td>
       const td = document.createElement("td");
-      
+
       // Create <div class="menu-icon hover-highlight">
       const divMenuIcon = document.createElement("div");
       divMenuIcon.classList.add("menu-icon");
@@ -1512,7 +1512,7 @@ Logic.registerPanel(ALWAYS_OPEN_IN_PICKER, {
       const spanMenuText = document.createElement("span");
       spanMenuText.classList.add("menu-text");
       spanMenuText.textContent = identity.name;
-      
+
       // Append Children
       // fragment > tr > td > (divMenuIcon > divMenuIcon) | spanMenuText
       divMenuIcon.appendChild(divUsercontextIcon);
@@ -1552,7 +1552,7 @@ Logic.registerPanel(P_CONTAINER_ASSIGNMENTS, {
     const editContainerAssignments = document.getElementById("edit-container-assignments");
     const editSitesAssignedSubheader = editContainerAssignments.querySelector(".sub-header");
     editSitesAssignedSubheader.textContent = browser.i18n.getMessage("sitesAssignedToThisContainer");
-  
+
     // Populating the panel: name and icon
     document.getElementById("edit-assignments-title").textContent = identity.name;
 
@@ -1587,13 +1587,13 @@ Logic.registerPanel(P_CONTAINER_ASSIGNMENTS, {
            This is pending a better solution for favicons from web extensions */
         const assumedUrl = `https://${site.hostname}/favicon.ico`;
 
-        // Create <td class="keyboard-nav hover-highlight menu-item"> 
+        // Create <td class="keyboard-nav hover-highlight menu-item">
         const trElement = document.createElement("tr");
         trElement.classList.add("menu-item", "hover-highlight", "keyboard-nav");
 
         // Create <td>
         const tdElement = document.createElement("td");
-          
+
         // Create <div class="favicon"></div> and set context via createFavIconElement()
         const divFavIcon = document.createElement("div");
         divFavIcon.classList.add("favicon");
@@ -2013,7 +2013,7 @@ Logic.registerPanel(P_CONTAINER_EDIT, {
 
   initializeRadioButtons() {
     const colorRadioTemplate = (containerColor) => {
-      
+
       // Create <div class="radio-container">
       const divRadioContainer = document.createElement("div");
       divRadioContainer.classList.add("radio-container");
@@ -2024,7 +2024,7 @@ Logic.registerPanel(P_CONTAINER_EDIT, {
       inputContainerColor.value = containerColor;
       inputContainerColor.name = "container-color";
       inputContainerColor.id = `edit-container-panel-choose-color-${containerColor}`;
-      
+
       // Create <label for="edit-container-panel-choose-color-${containerColor}" class="usercontext-icon choose-color-icon" data-identity-icon="circle" data-identity-color="${containerColor}">
       const labelContainerColor = document.createElement("label");
       labelContainerColor.classList.add("usercontext-icon");
@@ -2032,7 +2032,7 @@ Logic.registerPanel(P_CONTAINER_EDIT, {
       labelContainerColor.for = `edit-container-panel-choose-color-${containerColor}`;
       labelContainerColor.setAttribute("data-identity-icon", "circle");
       labelContainerColor.setAttribute("data-identity-color", containerColor);
-      
+
       // Append Children
       // divRadioContainer >  inputContainerColor | labelContainerColor
       divRadioContainer.appendChild(inputContainerColor);
@@ -2059,7 +2059,7 @@ Logic.registerPanel(P_CONTAINER_EDIT, {
       inputContainerIcon.value = containerIcon;
       inputContainerIcon.name = "container-icon";
       inputContainerIcon.id = `edit-container-panel-choose-icon-${containerIcon}`;
-      
+
       // Create <label for="edit-container-panel-choose-icon-${containerIcon}" class="usercontext-icon choose-color-icon" data-identity-color="grey" data-identity-icon="${containerIcon}">
       const labelContainerIcon = document.createElement("label");
       labelContainerIcon.classList.add("usercontext-icon");
@@ -2067,7 +2067,7 @@ Logic.registerPanel(P_CONTAINER_EDIT, {
       labelContainerIcon.for = `edit-container-panel-choose-icon-${containerIcon}`;
       labelContainerIcon.setAttribute("data-identity-color", "grey");
       labelContainerIcon.setAttribute("data-identity-icon", containerIcon);
-      
+
       // Append Children
       // divRadioContainer >  inputContainerIcon | labelContainerIcon
       divRadioContainer.appendChild(inputContainerIcon);
