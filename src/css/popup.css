@@ -2468,10 +2468,6 @@ tr:hover > td > .reset-button {
   text-align: center;
 }
 
-#edit-sites-add-assignment-info {
-
-}
-
 #edit-sites-add-assignment-error {
   background-color: var(--messagebar-destructive-bg-color);
   border: 1px solid var(--messagebar-destructive-border-color);
