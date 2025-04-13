@@ -14,7 +14,6 @@ const backgroundLogic = {
   NUMBER_OF_KEYBOARD_SHORTCUTS: 10,
   unhideQueue: [],
   init() {
-
     browser.commands.onCommand.addListener(function (command) {
       if (command === "sort_tabs") {
         backgroundLogic.sortTabs();
@@ -34,11 +33,36 @@ const backgroundLogic = {
     browser.permissions.onAdded.addListener(permissions => this.resetPermissions(permissions));
     browser.permissions.onRemoved.addListener(permissions => this.resetPermissions(permissions));
 
-    // Update Translation in Manifest
-    browser.runtime.onInstalled.addListener(this.updateTranslationInManifest);
-    browser.runtime.onStartup.addListener(this.updateTranslationInManifest);
+    browser.runtime.onInstalled.addListener((details) => {
+      this.updateDefaultSettings();
+      this.updateTranslationInManifest();
+    });
+    browser.runtime.onStartup.addListener(() => {
+      this.updateTranslationInManifest();
+    });
   },
 
+  /*
+   * updateDefaultSettings
+   *
+   */
+  async updateDefaultSettings() {
+    let defaultSettingsVersion =
+      await browser.storage.local.get("defaultSettingsVersion");
+
+    // Reset sort tabs default keyboard shortcut to avoid conflict with Tab
+    // Groups.
+    if (Object.keys(defaultSettingsVersion).length === 0) {
+      browser.commands.update({
+        name: "sort_tabs",
+        shortcut: "",
+      });
+      defaultSettingsVersion = 1;
+      browser.storage.local.set({ defaultSettingsVersion: defaultSettingsVersion });
+    }
+  },
+
+  // Update Translation in Manifest
   updateTranslationInManifest() {
     for (let index = 0; index < 10; index++) {
       const ajustedIndex = index + 1; // We want to start from 1 instead of 0 in the UI.
